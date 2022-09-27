@@ -1,5 +1,5 @@
 # Databricks notebook source
-df = spark.read.format("parquet").load("dbfs:/FileStore/shared_uploads/sri.naraharasetti@version1.com/data-1.parquet")
+df = spark.read.format("parquet").load("dbfs:/FileStore/data-1.parquet")
 
 # COMMAND ----------
 
@@ -32,11 +32,11 @@ deduplicated_df.rdd.getNumPartitions()
 
 # COMMAND ----------
 
-deduplicated_df.coalesce(1).write.format("delta").mode("overwrite").save("dbfs:/FileStore/shared_uploads/sri.naraharasetti@version1.com/blockchain__1_delta")
+deduplicated_df.coalesce(1).write.format("delta").mode("overwrite").save("dbfs:/FileStore/blockchain__1_delta")
 
 # COMMAND ----------
 
-# MAGIC %fs ls dbfs:/FileStore/shared_uploads/sri.naraharasetti@version1.com/blockchain__1_delta
+# MAGIC %fs ls dbfs:/FileStore/blockchain__1_delta
 
 # COMMAND ----------
 
@@ -72,11 +72,11 @@ display(df_out2)
 
 # COMMAND ----------
 
-df_out1.coalesce(1).write.format("parquet").mode("overwrite").save("dbfs:/FileStore/shared_uploads/sri.naraharasetti@version1.com/df_out1.parquet")
+df_out1.coalesce(1).write.format("parquet").mode("overwrite").save("dbfs:/FileStore/df_out1.parquet")
 
 # COMMAND ----------
 
-df_out1_parquet = spark.read.format("parquet").load("dbfs:/FileStore/shared_uploads/sri.naraharasetti@version1.com/df_out1.parquet")
+df_out1_parquet = spark.read.format("parquet").load("dbfs:/FileStore/df_out1.parquet")
 
 # COMMAND ----------
 
@@ -84,11 +84,11 @@ display(df_out1_parquet)
 
 # COMMAND ----------
 
-df_out2.coalesce(1).write.format("parquet").mode("overwrite").save("dbfs:/FileStore/shared_uploads/sri.naraharasetti@version1.com/df_out2.parquet")
+df_out2.coalesce(1).write.format("parquet").mode("overwrite").save("dbfs:/FileStore/df_out2.parquet")
 
 # COMMAND ----------
 
-df_out2_parquet = spark.read.format("parquet").load("dbfs:/FileStore/shared_uploads/sri.naraharasetti@version1.com/df_out2.parquet")
+df_out2_parquet = spark.read.format("parquet").load("dbfs:/FileStore/df_out2.parquet")
 
 # COMMAND ----------
 
