@@ -1,5 +1,5 @@
 # Databricks notebook source
-df = spark.read.format("parquet").load("dbfs:/FileStore/data-1.parquet")
+df = spark.read.format("parquet").load("dbfs:/FileStore/data.parquet")
 
 # COMMAND ----------
 
